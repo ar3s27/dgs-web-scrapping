@@ -24,14 +24,16 @@ for i, row in enumerate(rows[:253]):
             universty = cells[1].text.strip()
             quota = cells[2].text.strip()
             point = cells[5].text.strip()
-            arrangement = cells[7].text.strip()
-            section_name = cells[10].text.strip()
+            arrangement_1 = cells[8].text.strip()
+            arrangement_2 = cells[9].text.strip()
+            section_name = cells[12].text.strip()
             
             print("id: " + id)
             print("Üniversite: " + universty)
             print("Kontenjan: " + quota)
             print("Puan: " + point)
-            print("Sıralama: " + arrangement)
+            print("Sıralama 2023: " + arrangement_1)
+            print("Sıralama 2022: " + arrangement_2)
             print("Bölüm Adı: " + section_name)
             print("\n")
 
@@ -39,13 +41,14 @@ for i, row in enumerate(rows[:253]):
                 "Üniversite":universty,
                 "Kontenjan":quota,
                 "Puan":point,
-                "Sıralama":arrangement,
+                "Sıralama 2023":arrangement_1,
+                "Sıralama 2022":arrangement_2,
                 "Bölüm Adı":section_name
             }
 
 df = pd.DataFrame.from_dict(uniler, orient='index')
 
-excel_file_path = 'Üniversiteler.xlsx'
+excel_file_path = 'Üniversiteler_bilgisayar_2023.xlsx'
 df.to_excel(excel_file_path, index=False)
 
 print(f"Veriler '{excel_file_path}' dosyasına başarıyla kaydedildi.")
